@@ -3,7 +3,7 @@
     "path": "~/GitHub/BIO362-Final-Project/BIO362_Final_Project.R",
     "project_path": "BIO362_Final_Project.R",
     "type": "r_source",
-    "hash": "3577227029",
+    "hash": "1793103192",
     "contents": "",
     "dirty": false,
     "created": 1730404185724.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "3,0",
+        "cursorPosition": "12,1",
         "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1730405040,
+    "lastKnownWriteTime": 1730405140,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1730405040078,
+    "last_content_update": 1730405140835,
     "read_only": false,
     "read_only_alternatives": []
 }

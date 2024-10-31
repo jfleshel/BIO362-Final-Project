@@ -9,3 +9,5 @@ SmartLocation <- read.csv("/Users/jamiefleshel/Desktop/F&M/Fall_2024/DSEE/Intro_
 #S
 SmartLocationDatabase <- read_csv("G:/My Drive/BIO - Final Proyect/EPA_SmartLocationDatabase_V3_Jan_2021_Final.csv")
 EJSCREEN <- read_csv("G:/My Drive/BIO - Final Proyect/EJSCREEN.csv")
+
+h

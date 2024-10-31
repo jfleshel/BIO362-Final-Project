@@ -3,7 +3,7 @@
     "path": "~/GitHub/BIO362-Final-Project/test.R",
     "project_path": "test.R",
     "type": "r_source",
-    "hash": "2358898809",
+    "hash": "0",
     "contents": "",
     "dirty": false,
     "created": 1730402931146.0,
@@ -17,11 +17,11 @@
         "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1730403288,
+    "lastKnownWriteTime": 1730403410,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1730403288026,
+    "last_content_update": 1730403410,
     "read_only": false,
     "read_only_alternatives": []
 }

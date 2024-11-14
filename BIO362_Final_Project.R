@@ -103,3 +103,15 @@ mean_county <- PennStudyData %>%
   geom_point()+
   geom_smooth(method = "lm")+
   theme_bw())
+
+# Income vs mean life
+(inc_life <-ggplot(mean_county, aes(x=mean_inc, y=mean_life))+
+    geom_point()+
+    geom_smooth(method = "lm")+
+    theme_bw())
+
+# Proximity vs. life
+(prox_life <-ggplot(mean_county, aes(x=mean_prox, y=mean_life))+
+    geom_point()+
+    geom_smooth(method = "lm")+
+    theme_bw())

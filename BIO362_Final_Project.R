@@ -102,16 +102,47 @@ mean_county <- PennStudyData %>%
 (Prox_inc <-ggplot(mean_county, aes(x=mean_inc, y=mean_prox))+
   geom_point()+
   geom_smooth(method = "lm")+
-  theme_bw())
+  theme_bw()+
+  xlab("\nMean Percent Low Income")+
+  ylab("Mean Proximity to Hazardous Waste Index\n")+
+    theme(panel.grid = element_blank(),
+          axis.text.x = element_text(size=12),
+          axis.text.y = element_text(size=12)))
 
 # Income vs mean life
 (inc_life <-ggplot(mean_county, aes(x=mean_inc, y=mean_life))+
     geom_point()+
     geom_smooth(method = "lm")+
-    theme_bw())
+    theme_bw()+
+    xlab("\nMean Percent Low Income")+
+    ylab("Mean Percent Low Life Expectancy\n")+
+    theme(panel.grid = element_blank(),
+          axis.text.x = element_text(size=12),
+          axis.text.y = element_text(size=12)))
 
 # Proximity vs. life
 (prox_life <-ggplot(mean_county, aes(x=mean_prox, y=mean_life))+
     geom_point()+
     geom_smooth(method = "lm")+
-    theme_bw())
+    theme_bw()+
+    xlab("\nMean Proximity to Hazardous Waste Index")+
+    ylab("Mean Percent Low Life Expectancy\n")+
+    theme(panel.grid = element_blank(),
+          axis.text.x = element_text(size=12),
+          axis.text.y = element_text(size=12)))
+
+#ANOVA for Life expectancy by county
+life.m <- lm(LIFEEXPPCT ~ CNTY_NAME, data=PennStudyData)
+summary(life.m)
+anova(life.m)
+
+require(emmeans)
+emmeans(life.m,pairwise ~ CNTY_NAME) #Comparison of all pairs of t-test
+
+#ANOVA for prox by county
+prox.m <- lm(PTSDF ~ CNTY_NAME, data=PennStudyData)
+anova(prox.m)
+
+#ANOVA for income by county
+inc.m <- lm(LOWINCPCT ~CNTY_NAME, data=PennStudyData)
+anova(inc.m)

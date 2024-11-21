@@ -60,7 +60,13 @@ PennStudyData <- left_join(PennStudyData, mean_lowinc, by="pacounty")
 low_inc_map <- ggplot()
 (low_inc_map <- low_inc_map + geom_polygon( data=PennStudyData, 
                        aes(x=long, y=lat, group=group, fill=mean_lowinc)) +
-                       scale_fill_gradient(low="white",high="purple"))
+                       scale_fill_gradient(low="white",high="purple")+
+                       labs(fill="Mean Percent Low Income")+
+                       theme_dark()+
+                       xlab("\nLongitude")+
+                       ylab("Latitude\n"))
+
+
 
 #Average Life Expectancy per County
 
@@ -73,7 +79,11 @@ PennStudyData <- left_join(PennStudyData, mean_life, by="pacounty")
 life_map <- ggplot()
 (life_map <- life_map + geom_polygon( data=PennStudyData, 
                                             aes(x=long, y=lat, group=group, fill=mean_life)) +
-    scale_fill_gradient(low="white",high="turquoise"))
+    scale_fill_gradient(low="white",high="turquoise")+
+    labs(fill="Mean Percent Low Life Expectancy")+
+    theme_dark()+
+    xlab("\nLongitude")+
+    ylab("Latitude\n"))
 
 
 #Average Prox per County
@@ -88,7 +98,11 @@ PennStudyData <- left_join(PennStudyData, mean_prox, by="pacounty")
 prox_map <- ggplot()
 (prox_map <- prox_map + geom_polygon( data=PennStudyData, 
                                             aes(x=long, y=lat, group=group, fill=mean_prox)) +
-    scale_fill_gradient(low="white",high="magenta"))
+    scale_fill_gradient(low="white",high="magenta")+
+    labs(fill="Mean Score on Proximity Index")+
+    theme_dark()+
+    xlab("\nLongitude")+
+    ylab("Latitude\n"))
 
 
 #Prox Hazardous Waste vs. Income

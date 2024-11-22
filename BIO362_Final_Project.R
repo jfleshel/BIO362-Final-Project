@@ -79,7 +79,7 @@ PennStudyData <- left_join(PennStudyData, mean_life, by="pacounty")
 life_map <- ggplot()
 (life_map <- life_map + geom_polygon( data=PennStudyData, 
                                             aes(x=long, y=lat, group=group, fill=mean_life)) +
-    scale_fill_gradient(low="white",high="turquoise")+
+    scale_fill_gradient(low="white",high="aquamarine4")+
     labs(fill="Mean Percent Low Life Expectancy")+
     theme_dark()+
     xlab("\nLongitude")+
@@ -98,7 +98,7 @@ PennStudyData <- left_join(PennStudyData, mean_prox, by="pacounty")
 prox_map <- ggplot()
 (prox_map <- prox_map + geom_polygon( data=PennStudyData, 
                                             aes(x=long, y=lat, group=group, fill=mean_prox)) +
-    scale_fill_gradient(low="white",high="magenta")+
+    scale_fill_gradient(low="white",high="deeppink3")+
     labs(fill="Mean Score on Proximity Index")+
     theme_dark()+
     xlab("\nLongitude")+
@@ -121,7 +121,12 @@ mean_county <- PennStudyData %>%
   ylab("Mean Proximity to Hazardous Waste Index\n")+
     theme(panel.grid = element_blank(),
           axis.text.x = element_text(size=12),
-          axis.text.y = element_text(size=12)))
+          axis.text.y = element_text(size=12),
+          axis.title.x = element_text(color = "purple"),
+          axis.title.y = element_text(color="deeppink3")))
+
+proxinc.m<- lm(mean_inc ~ mean_prox, data = mean_county)
+summary(proxinc.m)
 
 # Income vs mean life
 (inc_life <-ggplot(mean_county, aes(x=mean_inc, y=mean_life))+
@@ -132,7 +137,12 @@ mean_county <- PennStudyData %>%
     ylab("Mean Percent Low Life Expectancy\n")+
     theme(panel.grid = element_blank(),
           axis.text.x = element_text(size=12),
-          axis.text.y = element_text(size=12)))
+          axis.text.y = element_text(size=12),
+          axis.title.x = element_text(color = "purple"),
+          axis.title.y = element_text(color="aquamarine4")))
+
+inclife.m<- lm(mean_inc ~ mean_life, data = mean_county)
+summary(inclife.m)
 
 # Proximity vs. life
 (prox_life <-ggplot(mean_county, aes(x=mean_prox, y=mean_life))+
@@ -143,7 +153,12 @@ mean_county <- PennStudyData %>%
     ylab("Mean Percent Low Life Expectancy\n")+
     theme(panel.grid = element_blank(),
           axis.text.x = element_text(size=12),
-          axis.text.y = element_text(size=12)))
+          axis.text.y = element_text(size=12),
+          axis.title.x = element_text(color = "deeppink3"),
+          axis.title.y = element_text(color="aquamarine4")))
+
+proxlife.m<- lm(mean_prox ~ mean_life, data = mean_county)
+summary(proxlife.m)
 
 #ANOVA for Life expectancy by county
 life.m <- lm(LIFEEXPPCT ~ CNTY_NAME, data=PennStudyData)
